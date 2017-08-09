@@ -1,0 +1,36 @@
+version: '2'
+services: 
+    pandora-mysql:
+        image: pandorafms/pandorafms-mysql:6
+        environment:
+            MYSQL_ROOT_PASSWORD: "AVeryStrongRootPassword"
+            MYSQL_DATABASE: "pandora"
+            MYSQL_USER: "pandora"
+            MYSQL_PASSWORD: "pandora"
+
+    pandora-server:
+        image: pandorafms/pandorafms-server:6
+        links: 
+            - "pandora-mysql:mysql"
+        ports: 
+            - "41121:41121"
+        environment:
+            PANDORA_DB_HOST: "mysql"
+            PANDORA_DB_NAME: "pandora"
+            PANDORA_DB_USER: "pandora"
+            PANDORA_DB_PASSWORD: "pandora"
+    pandora-console:
+        image: pandorafms/pandorafms-console:6
+        links: 
+            - "pandora-mysql:mysql"
+        ports: 
+            - "8080:80"
+            - "8022:8022"
+            - "8023:8023"
+        environment:
+            PANDORA_DB_HOST: "mysql"
+            PANDORA_DB_NAME: "pandora"
+            PANDORA_DB_USER: "pandora"
+            PANDORA_DB_PASSWORD: "pandora"
+    
+    
