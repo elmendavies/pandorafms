@@ -1,4 +1,4 @@
-FROM pandorafms/pandorafms-console:6
+FROM pandorafms/pandorafms-server:6
 MAINTAINER Universidad Pública de Navarra (UPNA) <miguel.martinezdeespronceda@unavarra.es>
 
 ADD docker_postinstall.sh /postinstall.sh

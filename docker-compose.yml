@@ -9,7 +9,8 @@ services:
             MYSQL_PASSWORD: "pandora"
 
     pandora-server:
-        image: pandorafms/pandorafms-server:6
+#        image: pandorafms/pandorafms-server:6
+        build: "pandora_server/."
         links: 
             - "pandora-mysql:mysql"
         ports: 
@@ -20,7 +21,6 @@ services:
             PANDORA_DB_USER: "pandora"
             PANDORA_DB_PASSWORD: "pandora"
     pandora-console:
-#        image: pandorafms/pandorafms-console:6
         build: "pandora_console/."
         links: 
             - "pandora-mysql:mysql"
