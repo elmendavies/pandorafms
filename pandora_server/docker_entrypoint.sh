@@ -41,7 +41,11 @@ sed -i "s/dbpass pandora/dbpass $PANDORA_DB_PASSWORD/g" /etc/pandora/pandora_ser
 sed -i "s/dbuser pandora/dbuser $PANDORA_DB_USER/g" /etc/pandora/pandora_server.conf
 sed -i "s/dbhost 127.0.0.1/dbhost $PANDORA_DB_HOST/g" /etc/pandora/pandora_server.conf
 
-while ! nc -z mysql 3306; do   
+#while ! nc -z mysql $MYSQL_PORT_3306_TCP; do   
+#  sleep 1
+#done
+
+while ! mysql -u $PANDORA_DB_USER -p$PANDORA_DB_PASSWORD -h $PANDORA_DB_HOST $PANDORA_DB_NAME <<< QUIT > /dev/null; do   
   sleep 1
 done
 

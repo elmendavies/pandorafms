@@ -9,7 +9,7 @@ services:
             MYSQL_USER: "pandora"
             MYSQL_PASSWORD: "pandora"
         volumes:
-            - "~/.pandora:/var/lib/mysql"
+            - "${HOME}/.pandora:/var/lib/mysql"
 
     pandora-server:
         container_name: "pandora-server"

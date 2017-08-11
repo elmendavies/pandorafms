@@ -9,4 +9,4 @@ mkdir -p /usr/share/pandora_server/enc/
 
 cd /tmp/pandorafms/pandora_server && ./pandora_server_installer --install
 
-yum install -y nc
+#yum install -y nc
