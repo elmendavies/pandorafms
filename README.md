@@ -27,6 +27,6 @@ sudo docker-compose up -H ${HOME}
 
 Then browse at `http://127.0.0.1:8080/pandora_console`
 
-A ${HOME}/.pandora directory is created which contains the MySQL database files.
+A `${HOME}/.pandora` directory is created which contains the MySQL database files.
 
 
