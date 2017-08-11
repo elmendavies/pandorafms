@@ -1,5 +1,9 @@
 # Pandora FMS 6.0 Images
 
+These images correct the wrong behaviour of original images at the original pandorafms project and simplify its setup.
+
+## Requirements
+
 Requires, at least:
  - docker
  - docker-compose
