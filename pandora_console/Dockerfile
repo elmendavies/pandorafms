@@ -1,5 +1,5 @@
 FROM centos:centos6
-MAINTAINER Area de Telematica - Universidad Pública de Navarra <miguel.martinezdeespronceda@unavarra.es>
+MAINTAINER Pandora FMS Team <info@pandorafms.com>
 
 RUN { \
 	echo '[EPEL]'; \
@@ -49,7 +49,7 @@ RUN yum install -y \
 	xprobe2
 
 #Clone the repo
-RUN git clone -b develop https://github.com/pandorafms/pandorafms.git /tmp/pandorafms
+RUN git clone -b 6.0 https://github.com/pandorafms/pandorafms.git /tmp/pandorafms
 
 #Exposing ports for: HTTP, SNMP Traps, Anytermd (SSH), Anytermd (Telnet), Tentacle protocol
 EXPOSE 80 162/udp 8022 8023 41121
