@@ -41,6 +41,10 @@ sed -i "s/dbpass pandora/dbpass $PANDORA_DB_PASSWORD/g" /etc/pandora/pandora_ser
 sed -i "s/dbuser pandora/dbuser $PANDORA_DB_USER/g" /etc/pandora/pandora_server.conf
 sed -i "s/dbhost 127.0.0.1/dbhost $PANDORA_DB_HOST/g" /etc/pandora/pandora_server.conf
 
+while ! nc -z mysql 3306; do   
+  sleep 1
+done
+
 #Rock n' roll!
 /etc/init.d/crond start &
 /etc/init.d/ntpd start &

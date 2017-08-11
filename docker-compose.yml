@@ -1,15 +1,19 @@
 version: '2'
 services: 
     pandora-mysql:
-        image: pandorafms/pandorafms-mysql:6
+        container_name: "pandora-mysql"
+        image: "pandorafms/pandorafms-mysql:6"
         environment:
             MYSQL_ROOT_PASSWORD: "AVeryStrongRootPassword"
             MYSQL_DATABASE: "pandora"
             MYSQL_USER: "pandora"
             MYSQL_PASSWORD: "pandora"
+        volumes:
+            - "~/.pandora:/var/lib/mysql"
 
     pandora-server:
-#        image: pandorafms/pandorafms-server:6
+        container_name: "pandora-server"
+        image: "elm/pandorafms-server:6"
         build: "pandora_server/."
         links: 
             - "pandora-mysql:mysql"
@@ -21,6 +25,8 @@ services:
             PANDORA_DB_USER: "pandora"
             PANDORA_DB_PASSWORD: "pandora"
     pandora-console:
+        container_name: "pandora-console"
+        image: "elm/pandorafms-console:6"
         build: "pandora_console/."
         links: 
             - "pandora-mysql:mysql"
@@ -33,5 +39,5 @@ services:
             PANDORA_DB_NAME: "pandora"
             PANDORA_DB_USER: "pandora"
             PANDORA_DB_PASSWORD: "pandora"
-    
+
     
